@@ -5,20 +5,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:component-scan base-package="xyz.klopina.springcourse"/>
     <context:property-placeholder location="musicPlayer.properties"/>
-
-    <bean id="musicBean"
-          class="xyz.klopina.springcourse.ClassicalMusic"
-    init-method="doMyInit"
-    destroy-method="doMyDestroy"
-    factory-method="getClassicalMusic">
-    </bean>
-    <bean id="musicPlayer"
-          class="xyz.klopina.springcourse.MusicPlayer">
-        <property name="music" ref="musicBean"/>
-        <property name="name" value="${musicPlaer.name}"/>
-        <property name="volume" value="${musicPlaer.volume}"/>
-
-    </bean>
-
 </beans>
