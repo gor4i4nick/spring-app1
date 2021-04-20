@@ -1,31 +1,17 @@
 package xyz.klopina.springcourse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
-    Music music;
-    String name;
-    int volume;
+    @Qualifier("rockMusic")
+    @Autowired
+    private Music music;
 
-    public String getName() {
-        return name;
+
+    public String playMusic() {
+         return "Playing: "+ music.getSong();
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
-    public void playMusic(){
-    System.out.println("Playing: " + music.getSong());
-}
 }
